@@ -3,7 +3,7 @@ using namespace std;
 
 class LinkedListStack {
 
-	//Stack¤¤ªº¸`ÂIµ²ºc¡A¸ê®Æ¤º®e¬O¦sint
+	//Stackä¸­çš„ç¯€é»çµæ§‹ï¼Œè³‡æ–™å…§å®¹æ˜¯å­˜int
 	struct Node
 	{
 		int data;
@@ -19,50 +19,50 @@ public:
 		size = 0;
 	}
 
-	//deconstructorÄÀ©ñ°O¾ĞÅé ¨Ì§Ç§R±¼¨C­Ónode  delete¥u¯à³z¹Lpointer¥h¹ï°O¾ĞÅéªÅ¶¡§R°£?
+	//deconstructoré‡‹æ”¾è¨˜æ†¶é«” ä¾åºåˆªæ‰æ¯å€‹node  deleteåªèƒ½é€épointerå»å°è¨˜æ†¶é«”ç©ºé–“åˆªé™¤?
 	~LinkedListStack()
 	{
 		Node * tempNode = nullptr;
 		while (top)
 		{
-			tempNode = top;//°O¿ı°_­ì¥»topªºnode
+			tempNode = top;//è¨˜éŒ„èµ·åŸæœ¬topçš„node
 
-			delete top;//§R±¼stack·í«e³Ì¤W¼hªºnode ¦P®Étop¤]·|¦]¦¹ÅÜ¦¨«ü¦V¤@­ÓªÅªº°O¾ĞÅéªÅ¶¡
-			top = tempNode->next;//§ó§ïtop«ü¦Vªº¦ì¸m¡AÅı¥L¥h«ü­ì¥»topªºnext node
+			delete top;//åˆªæ‰stackç•¶å‰æœ€ä¸Šå±¤çš„node åŒæ™‚topä¹Ÿæœƒå› æ­¤è®ŠæˆæŒ‡å‘ä¸€å€‹ç©ºçš„è¨˜æ†¶é«”ç©ºé–“
+			top = tempNode->next;//æ›´æ”¹topæŒ‡å‘çš„ä½ç½®ï¼Œè®“ä»–å»æŒ‡åŸæœ¬topçš„next node
 		}
 
-		delete tempNode;//¥ş³¡§R¥ú¥H«á §R±¼tempªºnode
+		delete tempNode;//å…¨éƒ¨åˆªå…‰ä»¥å¾Œ åˆªæ‰tempçš„node
 	}
 
-	//¥[¤J¸ê®Æ¨ìstack
+	//åŠ å…¥è³‡æ–™åˆ°stack
 	void push(int value)
 	{
-		Node * n = new Node;//·s¼W¤@­Ó¦s¸ê®Æªºstack¸`ÂI
+		Node * n = new Node;//æ–°å¢ä¸€å€‹å­˜è³‡æ–™çš„stackç¯€é»
 
-		n->data = value;//¬°¸Óstack¸`ÂIªş¥[Àx¦s¸ê®Æ
-		n->next = top;//±N¸Óstack¸`ÂI»P²{¦³ªºstack¸`ÂI¸sªºÀY³s±µ
+		n->data = value;//ç‚ºè©²stackç¯€é»é™„åŠ å„²å­˜è³‡æ–™
+		n->next = top;//å°‡è©²stackç¯€é»èˆ‡ç¾æœ‰çš„stackç¯€é»ç¾¤çš„é ­é€£æ¥
 
-		top = n;//¦¨¬°·sªºstack¸`ÂIÀY
+		top = n;//æˆç‚ºæ–°çš„stackç¯€é»é ­
 
 		size++;
 	}
 
 	int pop()
 	{
-		if (top != nullptr)//¦pªGstack¤¤¦³ªF¦è
+		if (top != nullptr)//å¦‚æœstackä¸­æœ‰æ±è¥¿
 		{
-			int value = top->data;//¨ú­È
+			int value = top->data;//å–å€¼
 			Node * tempNode = top;
 
-			//delete top;//®ø·À²{¦³¸`ÂI
+			//delete top;//ä¸èƒ½é€™æ¨£ç”¨ï¼Œé€™æ¨£é€™é‚Šåˆªäº†ä¸€æ¬¡ï¼Œå¾Œé¢åˆåˆªäº†åŒä¸€å€‹è¨˜æ†¶é«”ä½ç½®ä¸­çš„å…§å®¹ï¼Œå¯èƒ½æœƒæœ‰å•é¡Œ
 
-			top = tempNode->next;//Åıtop«ü¼Ğ«ü¨ì­ì¥»top¸`ÂIªº¤U¤@­Óstack¸`ÂI
+			top = tempNode->next;//è®“topæŒ‡æ¨™æŒ‡åˆ°åŸæœ¬topç¯€é»çš„ä¸‹ä¸€å€‹stackç¯€é»
 
-			delete tempNode;//®ø·À¼È¦sªº¸`ÂI
+			delete tempNode;//æ¶ˆæ»…æš«å­˜çš„ç¯€é»
 
-			return value;//¦^¶Ç­npopªºµ²ªG
+			return value;//å›å‚³è¦popçš„çµæœ
 		}
-		else//¦pªGstack¤w¸g¨SªF¦è¤F
+		else//å¦‚æœstackå·²ç¶“æ²’æ±è¥¿äº†
 		{
 			cout << "Empty stack" << endl;
 			return 0;
